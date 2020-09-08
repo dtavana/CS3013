@@ -1,0 +1,147 @@
+Script started on 2020-09-07 20:24:23-0400
+]0;dtavana@dtavana-cs3013: ~/Projects/Project1[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/Projects/Project1[00m$ ./doit ls
+doit  doit.cpp	foo.txt  typescript
+Recorded stats
+	User Time: 0 ms
+	System Time: 0 ms
+	Wall Clock Time: 1 ms
+	Preempted involuntarily: 4
+	Gave up CPU voluntarily: 1
+	Minor Page Faults: 100
+	Major Page Faults: 0
+-----------------------------
+]0;dtavana@dtavana-cs3013: ~/Projects/Project1[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/Projects/Project1[00m$ ./doit wc foot.[K[K.txt
+ 1  6 31 foo.txt
+Recorded stats
+	User Time: 0 ms
+	System Time: 0 ms
+	Wall Clock Time: 1 ms
+	Preempted involuntarily: 3
+	Gave up CPU voluntarily: 1
+	Minor Page Faults: 89
+	Major Page Faults: 0
+-----------------------------
+]0;dtavana@dtavana-cs3013: ~/Projects/Project1[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/Projects/Project1[00m$ ./doit sleep 5
+Recorded stats
+	User Time: 0 ms
+	System Time: 0 ms
+	Wall Clock Time: 5002 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 2
+	Minor Page Faults: 84
+	Major Page Faults: 0
+-----------------------------
+]0;dtavana@dtavana-cs3013: ~/Projects/Project1[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/Projects/Project1[00m$ ./doit
+==> ls
+doit  doit.cpp	foo.txt  typescript
+Recorded stats
+	User Time: 0 ms
+	System Time: 0 ms
+	Wall Clock Time: 0 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 1
+	Minor Page Faults: 99
+	Major Page Faults: 0
+-----------------------------
+==> wc foo.txt
+ 1  6 31 foo.txt
+Recorded stats
+	User Time: 1 ms
+	System Time: 0 ms
+	Wall Clock Time: 1 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 2
+	Minor Page Faults: 187
+	Major Page Faults: 0
+-----------------------------
+==> sleep 5
+Recorded stats
+	User Time: 1 ms
+	System Time: 0 ms
+	Wall Clock Time: 5001 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 4
+	Minor Page Faults: 271
+	Major Page Faults: 0
+-----------------------------
+==> sleep 5 &
+[1] | sleep | 6198
+==> ls
+doit  doit.cpp	foo.txt  typescript
+Recorded stats
+	User Time: 2 ms
+	System Time: 0 ms
+	Wall Clock Time: 1 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 5
+	Minor Page Faults: 372
+	Major Page Faults: 0
+-----------------------------
+==> ls
+[1] | sleep | 6198 Completed
+Recorded stats
+	User Time: 2 ms
+	System Time: 0 ms
+	Wall Clock Time: 8294 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 7
+	Minor Page Faults: 454
+	Major Page Faults: 0
+-----------------------------
+doit  doit.cpp	foo.txt  typescript
+Recorded stats
+	User Time: 3 ms
+	System Time: 0 ms
+	Wall Clock Time: 1 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 8
+	Minor Page Faults: 558
+	Major Page Faults: 0
+-----------------------------
+==> cd ../
+==> ls
+Project1
+Recorded stats
+	User Time: 4 ms
+	System Time: 0 ms
+	Wall Clock Time: 1 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 9
+	Minor Page Faults: 661
+	Major Page Faults: 0
+-----------------------------
+==> set prompt = myprmpot    op mpt:
+myprompt: sleep 10 &
+[1] | sleep | 6203
+myprompt: sleep 15 &
+[2] | sleep | 6204
+myprompt: jobs
+[1] | sleep | 6203
+[2] | sleep | 6204
+myprompt: exit
+[1] | sleep | 6203 Completed
+Recorded stats
+	User Time: 5 ms
+	System Time: 0 ms
+	Wall Clock Time: 11713 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 11
+	Minor Page Faults: 746
+	Major Page Faults: 0
+-----------------------------
+Waiting for background processes to complete
+-----------------------------
+[1] | sleep | 6204 Completed
+Recorded stats
+	User Time: 5 ms
+	System Time: 0 ms
+	Wall Clock Time: 15001 ms
+	Preempted involuntarily: 0
+	Gave up CPU voluntarily: 13
+	Minor Page Faults: 830
+	Major Page Faults: 0
+-----------------------------
+]0;dtavana@dtavana-cs3013: ~/Projects/Project1[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/Projects/Project1[00m$ exit
+exit
+
+Script done on 2020-09-07 20:26:39-0400

@@ -136,7 +136,6 @@ void processBackgroundJobs() {
             // Task finished, print information
             printBackgroundTask(i + 1, task);
             cout << " Completed" << endl;
-            cout << SEPERATOR;
             printStatistics(task.start);
             // Might need to be erase
             backgroundTasks.erase(backgroundTasks.begin() + i);
@@ -191,8 +190,8 @@ void sanitizeInput(char* input) {
 
 void cleanExit() {
     if(backgroundTasks.size() > 0) {
+        cout << "Waiting for background processes to complete" << endl;
         cout << SEPERATOR;
-        cout << endl << "Waiting for background processes to complete" << endl;
     }
     for(int i = 0; i < backgroundTasks.size(); i++) {
         process task = backgroundTasks.at(i);
