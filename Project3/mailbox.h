@@ -6,7 +6,6 @@
 
 #define RANGE 1
 #define ALLDONE 2
-#define MAXTHREAD 10
 
 typedef struct {
 	int iSender; /* sender of the message (0 .. number-of-threads) */
@@ -15,11 +14,10 @@ typedef struct {
 	int value2;  /* second value */
 } msg;
 
-extern msg** mailboxes;
-extern msg** readyMail;
-extern sem_t** pSems;
-extern sem_t** cSems;
-extern pthread_t** threads;
+extern msg** mailboxes; // Mailboxes for all threads including parent thread
+extern sem_t** pSems; // Producer semaphores for all mailboxes including parent thread mailbox
+extern sem_t** cSems; // Consumer semaphores for all mailboxes including parent thread mailbox
+extern pthread_t** threads; // All CHILD threads (0 index is threadId 1)
 
 void SendMsg(int iTo, msg* pMsg);
 void RecvMsg(int iFrom, msg* pMsg);

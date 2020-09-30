@@ -8,6 +8,8 @@ using namespace std;
 #include <pthread.h>
 #include "mailbox.h"
 
+#define MAXTHREAD 10
+
 void* threadInit(void*);
 
 void initSemaphores(int threadNumber)
@@ -33,32 +35,29 @@ void initThreads(int threadNumber)
     }
 }
 
-void initMailboxes(int threadNumber, int target)
+void initMailboxes(int threadNumber)
 {
     mailboxes = (msg**) malloc((threadNumber + 1) * sizeof(msg*));
-    readyMail = (msg**) malloc(threadNumber * sizeof(msg*));
-    // Share workload equally among threads
-    int shared = target / threadNumber;
-    int current = 1;
-    for(int i = 0; i < threadNumber; i++) {
-        readyMail[i] = (msg*) malloc(sizeof(msg));
-        readyMail[i]->iSender = 0;
-        readyMail[i]->type = RANGE;
-        readyMail[i]->value1 = current;
-        if(i != threadNumber - 1) {
-            readyMail[i]->value2 = shared * (i + 1);
-        }
-        else {
-            readyMail[i]->value2 = target;
-        }
-        current = shared * (i + 1) + 1; 
-    }
 }
 
-void startSend(int threadNumber)
+void startSend(int threadNumber, int target)
 {
+    
+    int shared = target / threadNumber; // Share workload equally among threads
+    int current = 1;
     for(int i = 0; i < threadNumber; i++) {
-        SendMsg(i + 1, readyMail[i]);
+        msg* newMessage = (msg*) malloc(sizeof(msg));
+        newMessage->iSender = 0; // Sending from parent
+        newMessage->type = RANGE;
+        newMessage->value1 = current;
+        if(i != threadNumber - 1) {
+            newMessage->value2 = shared * (i + 1);
+        }
+        else {
+            newMessage->value2 = target;
+        }
+        current = shared * (i + 1) + 1;
+        SendMsg(i + 1, newMessage);
     }
 }
 
@@ -77,7 +76,7 @@ void cleanup(int threadNumber)
 {
     for(int i = 0; i < threadNumber; i++) {
         free(mailboxes[i]);
-        free(threads[i]);
+        pthread_join(*threads[i], NULL);
         sem_destroy(pSems[i]);
         sem_destroy(cSems[i]);
     }
@@ -122,9 +121,9 @@ int main(int argc, char* argv[])
     }
 
     initSemaphores(threadNumber);
-    initMailboxes(threadNumber, target);
+    initMailboxes(threadNumber);
 
-    startSend(threadNumber);
+    startSend(threadNumber, target);
     initThreads(threadNumber);
     int total = startReceive(threadNumber);
     cout << "The total for 1 to " << target << " using " << threadNumber << " threads is " << total << "." << endl;

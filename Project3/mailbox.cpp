@@ -3,7 +3,6 @@ using namespace std;
 #include "mailbox.h"
 
 msg** mailboxes;
-msg** mailToSend;
 sem_t** pSems;
 sem_t** cSems;
 pthread_t** threads;
