@@ -18,6 +18,5 @@ void RecvMsg(int iFrom, msg* pMsg)
 {
     sem_wait(cSems[iFrom]);
     *pMsg = *mailboxes[iFrom];
-    free(mailboxes[iFrom]);
     sem_post(pSems[iFrom]);
 }
