@@ -293,24 +293,6 @@ bool unchanged(int** oldGrid, int** newGrid, int startRow, int endRow)
     return true;
 }
 
-void cleanup(int threadNumber)
-{
-    for(int i = 0; i < threadNumber; i++) {
-        free(mailboxes[i]);
-        free(cachedMessages[i]);
-        //pthread_join(*threads[i], NULL);
-        sem_destroy(pSems[i]);
-        sem_destroy(cSems[i]);
-    }
-    sem_destroy(pSems[threadNumber]);
-    sem_destroy(cSems[threadNumber]);
-    free(pSems);
-    free(cSems);
-    free(mailboxes);
-    free(cachedMessages);
-    free(threads);
-}
-
 void* threadInit(void* passedIndex)
 {
     /*
@@ -422,5 +404,4 @@ int main(int argc, char* argv[])
     startSend(threadNumber);
     initThreads(threadNumber);
     startGame(threadNumber, print, input);
-    cleanup(threadNumber);
 }
