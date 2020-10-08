@@ -4,6 +4,7 @@ using namespace std;
 #include <sys/stat.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
 #include <ctype.h>
@@ -12,12 +13,12 @@ using namespace std;
 
 void startMmap(int fdIn)
 {
-
+    cout << "Starting mmap" << endl;
 }
 
 void startRead(int chunkSize, int fdIn)
 {
-    
+    cout << "Starting read" << endl;
 }
 
 int main(int argc, char* argv[])
@@ -25,12 +26,12 @@ int main(int argc, char* argv[])
     int chunkSize = DEFAULTCHUNKSIZE;
     string file = argv[1];
     if(argc > 2) {
-        if(strcmp(argv[3], "mmap") == 0) {
+        if(strcmp(argv[2], "mmap") == 0) {
             // Indicate that we are using mmap
             chunkSize = -1;
         }
         else {
-            chunkSize = atoi(argv[3]);
+            chunkSize = atoi(argv[2]);
         }
         if(chunkSize > MAXCHUNKSIZE) {
             cout << "Chunk size exceeded the MAXCHUNKSIZE, defaulting to " << MAXCHUNKSIZE << " bytes" << endl;
