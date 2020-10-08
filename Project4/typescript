@@ -1,0 +1,22 @@
+Script started on 2020-10-08 13:25:02-0400
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4g++ proj4.cpp -o proj4[11Pman isspaceprintcd ../Project4[3PProject3../Project4[3Pman isprintspaceg++ proj4.cpp -o proj4./proj4[K[K./proj4g++ proj4.cpp -o proj4[11Pman isspaceg++ proj4.cpp -o proj4./proj4[K testfile.txt 2048
+19 printable characters out of 19 bytes, 100% using read()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 testfile.txt 2048[K[K[K[K4096
+19 printable characters out of 19 bytes, 100% using read()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 testfile.txt 4096[K[K[K[K9000
+Chunk size exceeded the MAXCHUNKSIZE, defaulting to 8192 bytes
+19 printable characters out of 19 bytes, 100% using read()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 testfile.txt 9000[K[K[K[K[K
+19 printable characters out of 19 bytes, 100% using read()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 testfile.txt[K[Kxt mmap
+19 printable characters out of 19 bytes, 100% using mmap()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 testfile.txt mmap[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kproj4
+4207 printable characters out of 14616 bytes, 28% using read()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 proj4 2048
+4207 printable characters out of 14616 bytes, 28% using read()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ ./proj4 proj4 2048[K[K[K[Kmmap
+4207 printable characters out of 14616 bytes, 28% using mmap()
+]0;dtavana@dtavana-cs3013: ~/CS3013/Project4[01;32mdtavana@dtavana-cs3013[00m:[01;34m~/CS3013/Project4[00m$ exit
+exit
+
+Script done on 2020-10-08 13:26:03-0400
